@@ -1,0 +1,72 @@
+<div class="col-sm-12 mt-4">
+    <div class="card">
+        <h4 class="card-header">
+            Thông tin Don Hang
+        </h4>
+        <div class="card-body">
+            <form method="POST">
+                <input type="hidden" name="action" value="XemChiTietDonHang">
+                <input type="hidden" name="MaKhachHang" value="<?php echo $data[0]->MaDangKy; ?>">
+                <div class="form-group">
+                    <label for="txtName">Tên Khách Hàng:</label>
+                    <input type="text" name="TenKH" class="form-control" id="txtName" <?php echo "value='{$data[0]->TenKH}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <label for="txtPhone">Số Điện Thoại:</label>
+                    <input type="text" name="DienThoai" class="form-control" id="txtPhone" <?php echo "value='{$data[0]->DienThoai}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <label for="txtAddress">Địa Chỉ:</label>
+                    <input type="text" name="DiaChi" class="form-control" id="txtAddress" <?php echo "value='{$data[0]->DiaChi}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <label for="NumberService">Thoi Gian Dat Hang:</label>
+                    <input type="text" name="ThoiGianBD" class="form-control" id="NumberService" <?php echo "value='{$data[0]->ThoiGianBD}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <label for="NumberService">Thoi Gian Ket Thuc:</label>
+                    <input type="text" name="ThoiGianKT" class="form-control" id="NumberService" <?php echo "value='{$data[0]->ThoiGianKT}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <label for="NumberService">Trang Thai:</label>
+                    <input type="text" name="TrangThai" class="form-control" id="NumberService" <?php echo "value='{$data[0]->TrangThai}'"; ?>>
+                </div>
+                <div class="form-group">
+                    <label for="NumberService">Ten Dich Vu:</label>
+                    <input type="text" name="TenDV" class="form-control" id="NumberService" <?php echo "value='{$DV[0]->TenDV}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <label for="NumberService">Số Lượng:</label>
+                    <input type="text" name="SoLuong" class="form-control" id="NumberService" <?php echo "value='{$data[0]->SoLuong}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <label for="DonGia">Đơn Giá:</label>
+                    <input type="text" name="DonGia" class="form-control" id="DonGia" <?php echo "value='{$DV[0]->DonGia}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <label for="GhiChu">Ghi Chú:</label>
+                    <input type="text" name="GhiChu" class="form-control" id="GhiChu" <?php echo "value='{$data[0]->GhiChu}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <label for="TongTien">Tổng Tiền:</label>
+                    <input type="text" name="ThanhTien" class="form-control" id="TongTien" <?php echo "value='{$data[0]->ThanhTien}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <label for="MaDK">Ma Khach Hang:</label>
+                    <input type="text" name="MaDangKy" class="form-control" id="MaDK" <?php echo "value='{$data[0]->MaDangKy}'"; ?> readonly>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa fa-check" aria-hidden="true"></i>
+                        Cap Nhap Trang Thai
+                    </button>
+                </div>
+                <div class="form-group">
+                    <?php if ($message) {
+                        echo "<p class='mt-4'>{$message}</p>";
+                    } ?>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

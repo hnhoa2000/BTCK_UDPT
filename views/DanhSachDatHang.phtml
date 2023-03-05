@@ -1,0 +1,43 @@
+<div class="col-12 mt-4">
+    <div class="card">
+        <h4 class="card-header d-flex justify-content-between">
+            Danh Sach Dat Hang
+        </h4>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ten Khach Hang</th>
+                        <th>Dien Thoai</th>
+                        <th>Dia Chi</th>
+                        <th>Trang Thai</th>
+                        <th>Ten Dich Vu</th>
+                        <th>So Luong</th>
+                        <th>Tong Tien</th>
+                        <th>Ghi Chu</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    for ($i = 0; $i < count($DanhSachDonHang); $i++) {
+                        echo "<tr>";
+                        echo "<th>" . $i . "</th>";
+                        echo "<th>" . $DanhSachDonHang[$i]->TenKH . "</th>";
+                        echo "<th>" . $DanhSachDonHang[$i]->DienThoai . "</th>";
+                        echo "<th>" . $DanhSachDonHang[$i]->DiaChi . "</th>";
+                        echo "<th>" . $DanhSachDonHang[$i]->TrangThai . "</th>";
+                        echo "<th>" . $DichVu[$i]->TenDV . "</th>";
+                        echo "<th>" . $DanhSachDonHang[$i]->SoLuong . "</th>";
+                        echo "<th>" . $DanhSachDonHang[$i]->ThanhTien . "</th>";
+                        echo "<th>" . $DanhSachDonHang[$i]->GhiChu . "</th>";
+                        echo "<th><a href='index.php?action=XemChiTietDonHang&MaDangKy={$DanhSachDonHang[$i]->MaDangKy}'>Xem Chi Tiet</a></th>";
+                        echo "</tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="col-sm-12 mt-4">
+    <div class="card">
+        <h4 class="card-header">
+            Nhập thông tin
+        </h4>
+        <div class="card-body">
+            <form method="POST">
+                <input type="hidden" name="action" value="DatDichVu">
+                <div class="form-group">
+                    <label for="txtName">Tên Khách Hàng:</label>
+                    <input type="text" name="TenKH" class="form-control" id="txtName" autofocus require>
+                </div>
+                <div class="form-group">
+                    <label for="txtPhone">Số Điện Thoại:</label>
+                    <input type="text" name="DienThoai" class="form-control" id="txtPhone" require>
+                </div>
+                <div class="form-group">
+                    <label for="txtAddress">Địa Chỉ:</label>
+                    <input type="text" name="DiaChi" class="form-control" id="txtAddress" require>
+                </div>
+                <div class="form-group">
+                    <label for="services">Chọn Dịch Vụ:</label>
+                    <select class="form-control" name="TenDV" id="services" onchange="serviceChanged(this)">
+                        <?php
+                        foreach ($ListDichVu as $DichVu) {
+                            echo "<option value='{$DichVu->DonGia}'>{$DichVu->TenDV}</option>";
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="NumberService">Số Lượng:</label>
+                    <input type="Number" name="SoLuong" class="form-control" id="NumberService" require onchange="NumberChanged(this)">
+                </div>
+                <div class="form-group">
+                    <label for="DonGia">Đơn Giá:</label>
+                    <input type="text" name="DonGia" class="form-control" id="DonGia" require <?php echo "value='{$ListDichVu[0]->DonGia}'"; ?>>
+                </div>
+                <div class="form-group">
+                    <label for="GhiChu">Ghi Chú:</label>
+                    <input type="text" name="GhiChu" class="form-control" id="GhiChu" require>
+                </div>
+                <div class="form-group">
+                    <label for="TongTien">Tổng Tiền:</label>
+                    <input type="text" name="ThanhTien" class="form-control" id="TongTien" require>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                    <i class="fa fa-check" aria-hidden="true"></i>
+                    Đặt dịch vụ
+                </button>
+                <div class="form-group">
+                    <?php if ($message) {
+                        echo "<p class='mt-4'>{$message}</p>";
+                    } ?>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function serviceChanged(obj) {
+        document.getElementById("DonGia").value = obj.value;
+        const SoLuong = document.getElementById("NumberService").value;
+        if (SoLuong != "") {
+            document.getElementById("TongTien").value = obj.value * SoLuong;
+        }
+    }
+
+    function NumberChanged(obj) {
+        const DonGia = document.getElementById("DonGia").value;
+        document.getElementById("TongTien").value = obj.value * DonGia;
+    }
+</script>
